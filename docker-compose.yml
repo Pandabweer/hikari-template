@@ -1,0 +1,11 @@
+services:
+  bot:
+    container_name: discord-bot
+    restart: unless-stopped
+    build:
+      context: .
+      target: dev-build
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./bot:/app/bot
