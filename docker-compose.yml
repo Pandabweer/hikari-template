@@ -1,6 +1,17 @@
 services:
-  bot:
+  bot-prod:
     container_name: discord-bot
+    restart: unless-stopped
+    build:
+      context: .
+      target: prod-build
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./bot:/app/bot
+
+  bot-dev:
+    container_name: discord-bot-dev
     restart: unless-stopped
     build:
       context: .
