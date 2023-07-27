@@ -35,7 +35,7 @@ FROM python-base AS project-setup
 
 WORKDIR /app
 
-COPY ./bot/Makefile ./bot/
+COPY ./bot/Makefile ./
 COPY poetry.lock pyproject.toml ./
 
 FROM project-setup AS dev-build
