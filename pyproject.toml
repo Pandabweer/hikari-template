@@ -49,4 +49,5 @@ select = [
 # `multi-line-summary-first-line` (D212) in favor of `multi-line-summary-second-line` (D213)
 # Forced module docstring (D100)
 # Missing docstring in public function (D103)
-ignore = ["D211", "D212", "D100", "D103"]
+# Missing docstring in public package (D104)
+ignore = ["D211", "D212", "D100", "D103", "D104"]

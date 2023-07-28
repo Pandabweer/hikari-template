@@ -1,1 +1,3 @@
-print("Hello main")
+import logging
+
+logging.warning("Hello Main!")
