@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "hikari-template"
-version = "0.1.2"
+version = "0.1.3"
 description = "A Hikari template meant to quickly setup a Discord bot using Hikari."
 authors = ["Enrique Bos <enriquebos7090@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.11,<3.12"
 hikari = {extras = ["speedups"], version = "^2.0.0.dev120"}
 hikari-lightbulb = "^2.3.3"
 uvloop = "^0.17.0"
@@ -24,7 +24,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 strict = true
 warn_unreachable = true
 implicit_reexport = true
