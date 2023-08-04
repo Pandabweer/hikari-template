@@ -1,11 +1,14 @@
-import logging
-import time
+import asyncio
+import os
 
+# On Windows, the selector event loop is required for aiodns.
+if os.name == "nt":
+    asyncio.set_event_loop_policy(
+        asyncio.WindowsSelectorEventLoopPolicy(),  # type: ignore[attr-defined]
+    )
 
-def func(hi: str) -> str:
-    return hi
+# If not on Windows we can use uvloop to speedup Hikari.
+if os.name != "nt":
+    import uvloop
 
-
-while True:
-    time.sleep(1)
-    logging.warning("Hello World!")
+    uvloop.install()

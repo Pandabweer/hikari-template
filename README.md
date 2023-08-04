@@ -7,5 +7,6 @@ Requirements:
 Running the project:
 ```bash
 poetry self add poetry-plugin-up \
+poetry install \
 pre-commit install
 ```

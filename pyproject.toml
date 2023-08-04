@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hikari-template"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Hikari template meant to quickly setup a Discord bot using Hikari."
 authors = ["Enrique Bos <enriquebos7090@gmail.com>"]
 license = "MIT"
@@ -8,7 +8,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
-hikari = "^2.0.0.dev120"
+hikari = {extras = ["speedups"], version = "^2.0.0.dev120"}
+hikari-lightbulb = "^2.3.3"
+uvloop = "^0.17.0"
+pydantic = "^2.1.1"
+pydantic-settings = "^2.0.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
@@ -20,13 +24,25 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.10"
 strict = true
 warn_unreachable = true
 implicit_reexport = true
 
+# Disable specific strict options since we don't own all the modules
+ignore_missing_imports = true
+disallow_untyped_decorators = false
+
 # Enable plugins for specfic packages
-# plugins = ["sqlalchemy.ext.mypy.plugin", "pydantic.mypy"]
+plugins = ["pydantic.mypy"] # "sqlalchemy.ext.mypy.plugin"
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[[tool.mypy.overrides]]
+module = 'lightbulb.*'
 
 [tool.ruff]
 target-version = "py311"

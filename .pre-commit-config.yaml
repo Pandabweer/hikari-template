@@ -18,7 +18,8 @@ repos:
   rev: v1.4.1
   hooks:
     - id: mypy
-      args: [--strict]
+      additional_dependencies:
+        - 'pydantic'
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.0.280
   hooks:
