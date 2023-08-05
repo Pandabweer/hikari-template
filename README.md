@@ -2,7 +2,7 @@ Requirements:
 - Python 3.11
 - Poetry 1.5.1
 - pre-commit 3.3.3
-- Docker 4.21.1
+- Docker 4.22
 
 Running the project:
 ```bash
