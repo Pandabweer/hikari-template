@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 from pydantic_settings import BaseSettings
 
 
@@ -13,8 +15,8 @@ class EnvConfig(
 
 
 class _Miscellaneous(EnvConfig):
-    debug: bool = True
-    file_logs: bool = True
+    debug: ClassVar[bool] = True
+    file_logs: ClassVar[bool] = True
 
 
 Miscellaneous = _Miscellaneous()
@@ -25,7 +27,10 @@ DEBUG_MODE = Miscellaneous.debug
 
 
 class _Bot(EnvConfig, env_prefix="bot_"):  # type: ignore[call-arg]
-    token: str = ""
+    token: ClassVar[str] = ""
+    trace_loggers: ClassVar[str] = "*"
+    default_enabled_guilds: ClassVar[list[int]] = [934896901256515714]
+    owner_ids: ClassVar[list[int]] = [169790484594556928]
 
 
 Bot = _Bot()
