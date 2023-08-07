@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hikari-template"
-version = "0.1.4"
+version = "0.1.5"
 description = "A Hikari template meant to quickly setup a Discord bot using Hikari."
 authors = ["Enrique Bos <enriquebos7090@gmail.com>"]
 license = "MIT"
